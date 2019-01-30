@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
 import { CharacterList } from '../components';
-// import actions
+import { FETCH_DATA, FETCH_DATA_COMPLETE, FETCH_DATA_FAIL } from '../actions';
+import { charsReducer } from '../reducers/starWarsReducer';
 
 class CharacterListView extends React.Component {
   componentDidMount() {
@@ -10,10 +12,9 @@ class CharacterListView extends React.Component {
   }
 
   render() {
-    if (this.props.fetching) {
-      // return something here to indicate that you are fetching data
-    }
-    return (
+    return this.props.fetching ? (
+      <Loader type="Ball-Triangle" color="grey" height="90" width="60" />
+    ) : (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
       </div>
@@ -21,11 +22,12 @@ class CharacterListView extends React.Component {
   }
 }
 
-// our mapStateToProps needs to have two properties inherited from state
-// the characters and the fetching boolean
+const mapStateToProps = state => ({
+  characters: state.charsReducer.characters,
+  fetching: state.charsReducer.fetching
+});
+
 export default connect(
-  null /* mapStateToProps replaces null here */,
-  {
-    /* action creators go here */
-  }
+  mapStateToProps,
+  { charsReducer }
 )(CharacterListView);

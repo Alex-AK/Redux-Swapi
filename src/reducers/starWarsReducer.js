@@ -1,8 +1,8 @@
 import { FETCH_DATA, FETCH_DATA_COMPLETE, FETCH_DATA_FAIL } from '../actions';
 
 const initialState = {
-  characters: [{ name: 'testing' }],
-  isLoading: false,
+  characters: [{ name: 'test' }],
+  fetching: true,
   error: ''
 };
 
