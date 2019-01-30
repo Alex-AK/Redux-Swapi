@@ -3,12 +3,24 @@ import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 
 import { CharacterList } from '../components';
-import { fetchData } from '../actions';
+import { fetchData, incrementPage, decrementPage } from '../actions';
 
 class CharacterListView extends React.Component {
   componentDidMount() {
-    this.props.fetchData();
+    setTimeout(() => this.props.fetchData(this.props.page), 3000);
   }
+
+  incrementPage = () => {
+    if (this.props.page < 9) {
+      this.props.incrementPage(this.props.page + 1);
+    }
+  };
+
+  decrementPage = () => {
+    if (this.props.page > 1) {
+      this.props.decrementPage(this.props.page - 1);
+    }
+  };
 
   render() {
     return this.props.fetching ? (
@@ -16,6 +28,23 @@ class CharacterListView extends React.Component {
     ) : (
       <div className="CharactersList_wrapper">
         <CharacterList characters={this.props.characters} />
+        <div className="button-container">
+          <button
+            className={this.props.page === 1 ? 'disable' : null}
+            onClick={this.decrementPage}
+          >
+            Previous
+          </button>
+          {this.props.smallFetching && (
+            <Loader type="Ball-Triangle" color="grey" height="20" />
+          )}
+          <button
+            className={this.props.page === 9 ? 'disable' : null}
+            onClick={this.incrementPage}
+          >
+            Next
+          </button>
+        </div>
       </div>
     );
   }
@@ -24,10 +53,12 @@ class CharacterListView extends React.Component {
 const mapStateToProps = state => ({
   characters: state.charsReducer.characters,
   fetching: state.charsReducer.fetching,
-  error: state.charsReducer.error
+  smallFetching: state.charsReducer.smallFetching,
+  error: state.charsReducer.error,
+  page: state.charsReducer.page
 });
 
 export default connect(
   mapStateToProps,
-  { fetchData }
+  { fetchData, incrementPage, decrementPage }
 )(CharacterListView);

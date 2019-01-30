@@ -4,6 +4,7 @@
 
 .char-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   height: 550px;
@@ -14,4 +15,35 @@
   padding: 10px;
   margin: 10px 0;
   border: 1px solid grey;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  font-weight: 600;
+  color: #494949;
+  text-transform: uppercase;
+  padding: 4px;
+  height: 30px;
+  border: 2px solid #494949;
+  border-radius: 2px;
+  width: 90px;
+}
+
+button:hover {
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.disable {
+  color: lightgrey;
+  border-color: lightgrey;
 }
