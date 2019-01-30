@@ -53,7 +53,8 @@ export const charsReducer = (state = initialState, action) => {
     case DECREMENT_PAGE:
       return {
         ...state,
-        page: action.payload
+        page: action.page,
+        smallFetching: true
       };
     case DECREMENT_DATA:
       return {
