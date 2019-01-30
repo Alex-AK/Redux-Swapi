@@ -1,29 +1,33 @@
 import { FETCH_DATA, FETCH_DATA_COMPLETE, FETCH_DATA_FAIL } from '../actions';
 
 const initialState = {
-  characters: [{ name: 'test' }],
-  fetching: true,
+  characters: [],
+  fetching: false,
   error: ''
 };
 
 export const charsReducer = (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
-    // Fill me in with the important reducers
-    // action types should be FETCHING, SUCCESS and FAILURE
-    // your switch statement should handle all of these cases.
     case FETCH_DATA:
-      console.log('fetch_data working');
-      return {};
-    case FETCH_DATA_COMPLETE:
-      console.log('fetch_data working');
-      return {};
-    case FETCH_DATA_FAIL:
-      console.log('fetch_data working');
       return {
         ...state,
-        error: 'there has been an error'
+        fetching: true,
+        error: ''
       };
-
+    case FETCH_DATA_COMPLETE:
+      return {
+        ...state,
+        characters: action.payload,
+        fetching: false,
+        error: ''
+      };
+    case FETCH_DATA_FAIL:
+      return {
+        ...state,
+        fetching: false,
+        error: action.payload
+      };
     default:
       return state;
   }

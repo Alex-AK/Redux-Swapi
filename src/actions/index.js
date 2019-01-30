@@ -12,8 +12,21 @@ export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
 // remember that now we have controll over our thunk-based action creator
 
 export const fetchData = () => dispatch => {
-  return {
-    type: FETCH_DATA,
-    payload: 'yes'
-  };
+  dispatch({
+    type: FETCH_DATA
+  });
+  axios
+    .get('https://swapi.co/api/people')
+    .then(res =>
+      dispatch({
+        type: FETCH_DATA_COMPLETE,
+        payload: res.data.results
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: FETCH_DATA_FAIL,
+        payload: 'Failed to load'
+      })
+    );
 };
