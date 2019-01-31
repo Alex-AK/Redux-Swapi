@@ -41,7 +41,7 @@ class CharacterListView extends React.Component {
             <Loader type="Ball-Triangle" color="grey" height="20" />
           )}
           <button
-            className={this.props.page === 9 ? 'disable' : null}
+            className={this.props.page === 8 ? 'disable' : null}
             onClick={this.incrementPage}
           >
             Next
