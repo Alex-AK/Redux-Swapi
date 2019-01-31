@@ -2,13 +2,9 @@ import React from 'react';
 import Character from './Character';
 
 const CharacterList = props => {
-  return (
-    <div className="card-list">
-      {props.characters.map(character => {
-        return <Character key={character.name} character={character} />;
-      })}
-    </div>
-  );
+  return props.characters.map(character => {
+    return <Character key={character.name} character={character} />;
+  });
 };
 
 export default CharacterList;

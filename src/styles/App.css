@@ -1,26 +1,42 @@
-.app h1 {
-  text-align: center;
+.app {
+  height: 100vh;
 }
 
-.char-list {
+nav img {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 0.5);
+}
+
+.loader {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 550px;
+  width: 800px;
+  height: 70vh;
+  margin: 20px auto;
 }
 
 .card {
   width: 300px;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px;
   border: 1px solid grey;
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  width: 400px;
+  margin: 0 auto;
 }
 
 button {
@@ -28,6 +44,7 @@ button {
   color: #494949;
   text-transform: uppercase;
   padding: 4px;
+  margin: 0 20px;
   height: 30px;
   border: 2px solid #494949;
   border-radius: 2px;
@@ -46,4 +63,23 @@ button:focus {
 .disable {
   color: lightgrey;
   border-color: lightgrey;
+}
+
+footer {
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid black;
+  width: 100%;
+  margin-top: 25px;
+  padding-bottom: 5px;
+}
+
+footer span {
+  font-weight: 300;
+  margin: 0 10px 0 7px;
+}
+
+footer a {
+  text-decoration: none;
+  color: teal;
 }

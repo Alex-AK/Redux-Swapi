@@ -24,9 +24,11 @@ class CharacterListView extends React.Component {
 
   render() {
     return this.props.fetching ? (
-      <Loader type="Ball-Triangle" color="grey" height="50" />
+      <div className="loader">
+        <Loader type="Ball-Triangle" color="grey" height="50" />
+      </div>
     ) : (
-      <div className="CharactersList_wrapper">
+      <div className="card-list">
         <CharacterList characters={this.props.characters} />
         <div className="button-container">
           <button
