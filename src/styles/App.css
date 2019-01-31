@@ -1,28 +1,85 @@
-.App {
+.app {
+  height: 100vh;
+}
+
+nav img {
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 2px rgb(0, 0, 0, 0.5);
+}
+
+.loader {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 70vh;
+  margin: 20px auto;
+}
+
+.card {
+  width: 300px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid grey;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin: 0 auto;
+}
+
+button {
+  font-weight: 600;
+  color: #494949;
+  text-transform: uppercase;
+  padding: 4px;
+  margin: 0 20px;
+  height: 30px;
+  border: 2px solid #494949;
+  border-radius: 2px;
+  width: 90px;
+}
+
+button:hover {
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.disable {
+  color: lightgrey;
+  border-color: lightgrey;
+}
+
+footer {
+  font-size: 12px;
   text-align: center;
+  border-top: 1px solid black;
+  width: 100%;
+  margin-top: 25px;
+  padding-bottom: 5px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+footer span {
+  font-weight: 300;
+  margin: 0 10px 0 7px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+footer a {
+  text-decoration: none;
+  color: teal;
 }
